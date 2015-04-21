@@ -94,11 +94,11 @@
                 $request = new FacebookRequest(
                     $session,
                     'GET',
-                    '/{user-id}/'
+                    '/{user-id}/picture'
                 );
                 
                 echo $request;
-                die();
+                //die();
                 
                 $response = $request->execute();
                 $graphObject = $response->getGraphObject();
