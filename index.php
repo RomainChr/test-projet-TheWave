@@ -92,13 +92,13 @@
                 
                 
                 
-                //try {
+                try {
 
                     // Upload to a user's profile. The photo will be in the
                     // first album in the profile. You can also upload to
                     // a specific album by using /ALBUM_ID as the path     
                     $response = (new FacebookRequest(
-                        $session, 'POST', '/me/photos', array(
+                    $session, 'POST', '/me/photos', array(
                         'source' => new CURLFile('path/to/file.name', 'image/png'),
                         'message' => 'User provided message'
                     )
@@ -109,12 +109,12 @@
 
                     echo "Posted with id: " . $response->getProperty('id');
                     echo $facebook
-//                } catch(FacebookRequestException $e) {
-//
-//                    echo "Exception occured, code: " . $e->getCode();
-//                    echo " with message: " . $e->getMessage();
-//
-//                } 
+                } catch(FacebookRequestException $e) {
+
+                    echo "Exception occured, code: " . $e->getCode();
+                    echo " with message: " . $e->getMessage();
+
+                } 
                 
 //                $response = (new FacebookRequest(
 //                  $session, 'POST', '/me/photos', array(
