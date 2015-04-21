@@ -92,7 +92,7 @@
                 
                 
                 
-                
+                //try {
 
                     // Upload to a user's profile. The photo will be in the
                     // first album in the profile. You can also upload to
@@ -108,8 +108,13 @@
                     // 'source' => '@/path/to/file.name'
 
                     echo "Posted with id: " . $response->getProperty('id');
-                    echo $faceboo
-                
+                    echo $facebook
+//                } catch(FacebookRequestException $e) {
+//
+//                    echo "Exception occured, code: " . $e->getCode();
+//                    echo " with message: " . $e->getMessage();
+//
+//                } 
                 
 //                $response = (new FacebookRequest(
 //                  $session, 'POST', '/me/photos', array(
