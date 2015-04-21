@@ -97,7 +97,7 @@
                     '/{user-id}/picture'
                 );
                 
-                echo $request;
+                //echo $request;
                 //die();
                 
                 $response = $request->execute();
