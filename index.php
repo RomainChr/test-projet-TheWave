@@ -11,6 +11,8 @@
 	use Facebook\FacebookRedirectLoginHelper;
 	use Facebook\FacebookRequest;
 	use Facebook\GraphUser;
+    use Facebook\GraphObject;
+    use Facebook\FacebookRequestException;
     
   
     const APPID = "767304380051847";
@@ -22,7 +24,7 @@
 
     FacebookSession::setDefaultApplication(APPID, APPSECRET);
 
-    $helper = new FacebookRedirectLoginHelper('https://thewave.herokuapp.com/');
+    $helper = new FacebookRedirectLoginHelper('https://projetesgireseauxsociaux.herokuapp.com/');
 	
 	//SI les variables de sessions existent et que $_SESSION['fb_token'] existe
 	// alors je veux créer mon utilisateur à partir de cette session
@@ -88,7 +90,29 @@
                 
                 echo "----------------";
                 
-                
+                try {
+
+                    // Upload to a user's profile. The photo will be in the
+                    // first album in the profile. You can also upload to
+                    // a specific album by using /ALBUM_ID as the path     
+                    $response = (new FacebookRequest(
+                    $session, 'POST', '/me/photos', array(
+                    'source' => new CURLFile('path/to/file.name', 'image/png'),
+                    'message' => 'User provided message'
+                    )
+                    ))->execute()->getGraphObject();
+
+                    // If you're not using PHP 5.5 or later, change the file reference to:
+                    // 'source' => '@/path/to/file.name'
+
+                    echo "Posted with id: " . $response->getProperty('id');
+
+                } catch(FacebookRequestException $e) {
+
+                    echo "Exception occured, code: " . $e->getCode();
+                    echo " with message: " . $e->getMessage();
+
+                } 
                 
 //                $response = (new FacebookRequest(
 //                  $session, 'POST', '/me/photos', array(
@@ -108,8 +132,6 @@
 				echo "<a href='".$loginUrl."'>Se connecter</a>";
 			}
 		?>
-        
-    
 </body>
 </html>
 
