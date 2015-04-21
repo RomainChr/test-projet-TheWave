@@ -15,8 +15,8 @@
     use Facebook\FacebookRequestException;
     
   
-    const APPID = "767304380051847";
-    const APPSECRET ="7f0e4cac931818f7f7dc86d722dd5e0e";
+    const APPID = "451317511698280";
+    const APPSECRET ="defa21c582018c4dc20e7a955b8a2e5c";
 
 
     //$fbPermissions = 'publish_stream,user_photos';  //Required facebook permissions
