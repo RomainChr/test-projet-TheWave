@@ -94,7 +94,7 @@
                 $request = new FacebookRequest(
                     $session,
                     'GET',
-                    '/{user-id}/picture'
+                    $user.'/picture'
                 );
                 
                 //echo $request;
